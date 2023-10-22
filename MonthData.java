@@ -1,21 +1,37 @@
-
-
+import java.util.Scanner;
 public class MonthData {
-int[] days = new int[30];
-    // вывод статистики без данных о масиве
-void showStatistics(){
-for (int i=0; i<days.length; i++){
-    System.out.println((i+1) + " день:" + days[i] );
-}
-}
-    void monthlyCalculation() {
-        int steps = 0;
-        for (int i=0; i<days.length;i++){
-            days[i] += steps;
+Scanner sc;
+    StepTracker tracker;
+    int[] days = new int[30];
+    int ReadingStepsForMonth() {
+        int sum = 0;
+        for (int day : days) {
+            sum += day;
         }
-        System.out.println("Итог за месяц " + steps);
+    return sum;
     }
+    int sumStepsFromMonth(){
+        int maxSum = 0;
+       for (int max : days) {
+           if (max > maxSum) {
+               maxSum = max;
+           }
+       }
+        return maxSum;
     }
+    int bestSeries(int dailyGoal){
+      tracker = new StepTracker(sc);
+        int currentSeries = 0;
+        int finalSeries = 0;
+        for (int day : days) {
+            if (day == dailyGoal||day > dailyGoal) {
+                currentSeries++;
+                finalSeries = currentSeries;
+            }
+        }
+        return finalSeries;
+    }
+}
 
 
 
