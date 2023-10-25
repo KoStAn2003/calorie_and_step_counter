@@ -3,6 +3,7 @@ public class MonthData {
 Scanner sc;
     StepTracker tracker;
     int[] days = new int[30];
+    int[] monthData = new int[12];
     int ReadingStepsForMonth() {
         int sum = 0;
         for (int day : days) {
